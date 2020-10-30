@@ -14,14 +14,14 @@
 
   <form id="message-form" method="POST" action="/messages">
     <textarea id="message-body-input" name="body" placeholder="Enter a message here."></textarea>
-    <button type="submit">Post Message</button>
+    <button type="submit">Submit Idea</button>
   </form>
 
   <div id="messages">
-    <h2>Messages</h2>
+    <h3>What other people are thinking...</h3>
 
     {{#unless messages}}
-      <p>Sorry, no messages. :(</p>
+      <p>No ideas yet 😔 </p>
     {{else}}
       <ol class="message-list">
         {{#each messages}}

@@ -1,12 +1,12 @@
 body {
-  background-color: rgb(255, 255, 255);
+  background-color: #FAAAAB;
   color: rgb(32, 32, 32);
   font-family: 'Helvetica', 'Arial', sans-serif;
   box-sizing: border-box;
 }
 
 #page-header {
-  margin: 20px auto;
+  margin: 25px auto;
   width: 400px;
 }
 

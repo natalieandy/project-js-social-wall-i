@@ -24,15 +24,13 @@ function loadRoutes(knex) {
 
     let messageData = {
       body: messageBody,
-      created_at: messageTime,
+      //created_at: messageTime,
     };
 
     // There is no error handling here.
     await knex('messages').insert(messageData);
     response.redirect('/');
   });
-
-  return router;
 }
 
 module.exports = loadRoutes;
