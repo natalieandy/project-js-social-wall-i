@@ -1,4 +1,5 @@
 let Router = require('express-promise-router');
+const { response } = require('./app');
 
 /**
  * Our router needs access to our database, so we define
@@ -24,13 +25,21 @@ function loadRoutes(knex) {
 
     let messageData = {
       body: messageBody,
-      //created_at: messageTime,
+      created_at: messageTime,
     };
 
-    // There is no error handling here.
     await knex('messages').insert(messageData);
     response.redirect('/');
   });
+
+  // POST
+  router.post('/likes', async(request, response) => {
+    let messageID = request.body.message_id;
+    await knex('messages').where('id', messageID).increment('likes', 1);
+    response.redirect('/');
+  });
+
+return router;
 }
 
 module.exports = loadRoutes;

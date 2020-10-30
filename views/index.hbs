@@ -23,18 +23,34 @@
     {{#unless messages}}
       <p>No ideas yet 😔 </p>
     {{else}}
-      <ol class="message-list">
+      <li class="message-list">
         {{#each messages}}
-          <li>
+          <ul>
             <div class="message-body">
               {{body}}
+              <div class="like-button">
+                <h4><span id="like">{{likes}}</span></h4>
+                <form action="/likes" method="POST">
+                  <input type="hidden" name="message_id" value="{{id}}">
+                  <button type="submit">Like</button>
+                </form>
+              </div>
+
             </div>
             <div class="message-timestamp">
               Posted on {{created_at}}
             </div>
-          </li>
+          </ul>
         {{/each}}
-      </ol>
+      </li>
     {{/unless}}
   </div>
 </div>
+
+<script>
+  function displayCount(){
+  var like = document.getElementById('like').innerHTML
+  like++;
+  document.getElementById('like').innerHTML = like;
+  }
+</script>
